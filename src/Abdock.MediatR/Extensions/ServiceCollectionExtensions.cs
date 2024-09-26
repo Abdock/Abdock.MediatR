@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Abdock.MediatR.Implementations;
 using Abdock.MediatR.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +21,7 @@ namespace Abdock.MediatR.Extensions
                 services.AddTransient(serviceType, handler);
             }
 
+            services.AddTransient<IMediator, Mediator>();
             return services;
         }
 
@@ -37,6 +39,7 @@ namespace Abdock.MediatR.Extensions
                 services.AddTransient(serviceType, handler);
             }
 
+            services.AddTransient<IMediator, Mediator>();
             return services;
         }
     }
