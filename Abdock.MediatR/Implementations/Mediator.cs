@@ -1,21 +1,23 @@
 ﻿using Abdock.MediatR.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Abdock.MediatR.Implementations;
-
-internal sealed class Mediator : IMediator
+namespace Abdock.MediatR.Implementations
 {
-    private readonly IServiceProvider _services;
-
-    public Mediator(IServiceProvider services)
+    internal sealed class Mediator : IMediator
     {
-        _services = services;
-    }
+        private readonly IServiceProvider _services;
 
-    public ValueTask<TResponse> SendAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
-        where TRequest : IRequest<TResponse>
-    {
-        var handler = _services.GetRequiredService<IRequestHandler<TRequest, TResponse>>();
-        return handler.HandleAsync(request, cancellationToken);
+        public Mediator(IServiceProvider services)
+        {
+            _services = services;
+        }
+
+        public ValueTask<TResponse> SendAsync<TRequest, TResponse>(TRequest request,
+            CancellationToken cancellationToken = default)
+            where TRequest : IRequest<TResponse>
+        {
+            var handler = _services.GetRequiredService<IRequestHandler<TRequest, TResponse>>();
+            return handler.HandleAsync(request, cancellationToken);
+        }
     }
 }

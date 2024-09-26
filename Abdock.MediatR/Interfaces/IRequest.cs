@@ -1,3 +1,6 @@
-﻿namespace Abdock.MediatR.Interfaces;
-
-public interface IRequest<TResponse>;
+﻿namespace Abdock.MediatR.Interfaces
+{
+    public interface IRequest<TResponse>
+    {
+    }
+}

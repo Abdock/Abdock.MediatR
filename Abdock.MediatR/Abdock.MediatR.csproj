@@ -1,13 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.0.1</Version>
+        <Authors>Abdock</Authors>
+        <Description>This package is just coping some feature from MediatR package, but using ASP.NET DI container to resolve commands and queries</Description>
+        <RepositoryUrl>https://github.com/Abdock/Abdock.MediatR</RepositoryUrl>
+        <PackageTags>Mediator,MediatR,CQRS</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>10</LangVersion>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
     </ItemGroup>
 
 </Project>
