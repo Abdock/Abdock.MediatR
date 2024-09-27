@@ -12,11 +12,9 @@ namespace Abdock.MediatR.Implementations
             _services = services;
         }
 
-        public ValueTask<TResponse> SendAsync<TRequest, TResponse>(TRequest request,
-            CancellationToken cancellationToken = default)
-            where TRequest : IRequest<TResponse>
+        public ValueTask<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)
         {
-            var handler = _services.GetRequiredService<IRequestHandler<TRequest, TResponse>>();
+            var handler = _services.GetRequiredService<IRequestHandler<IRequest<TResponse>, TResponse>>();
             return handler.HandleAsync(request, cancellationToken);
         }
     }
