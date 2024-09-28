@@ -3,7 +3,7 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>0.0.3</Version>
+        <Version>0.0.4</Version>
         <Authors>Abdock</Authors>
         <Description>This package is just coping some feature from MediatR package, but using ASP.NET DI container to resolve commands and queries</Description>
         <RepositoryUrl>https://github.com/Abdock/Abdock.MediatR</RepositoryUrl>
