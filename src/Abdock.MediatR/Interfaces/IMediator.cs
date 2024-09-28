@@ -1,7 +1,9 @@
-﻿namespace Abdock.MediatR.Interfaces
+﻿namespace Abdock.MediatR.Interfaces;
+
+public interface IMediator
 {
-    public interface IMediator
-    {
-        ValueTask<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default);
-    }
+    ValueTask<TResponse> SendAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : IRequest<TResponse>;
+
+    ValueTask SendAsync<TRequest>(TRequest request, CancellationToken cancellationToken = default) where TRequest : IRequest;
 }
